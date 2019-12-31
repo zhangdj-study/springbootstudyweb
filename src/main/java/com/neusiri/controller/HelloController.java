@@ -1,5 +1,6 @@
 package com.neusiri.controller;
 
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import java.util.Map;
  * @date 2019/11/19
  */
 @RestController
+@Api(tags = {"http请求测试"})
 @Slf4j
 public class HelloController {
 
@@ -56,4 +58,5 @@ public class HelloController {
             System.out.println(s);
         }
     }
+
 }

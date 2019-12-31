@@ -2,6 +2,7 @@ package com.neusiri.controller;
 
 import com.neusiri.response.Response;
 import com.neusiri.util.TokenUtil;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/11/20
  */
 @RestController
+@Api(tags = {"登录测试"})
 public class LoginController {
 
 
