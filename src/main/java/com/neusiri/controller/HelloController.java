@@ -1,11 +1,9 @@
 package com.neusiri.controller;
 
+import com.neusiri.exception.HelloException;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +21,10 @@ import java.util.Map;
 public class HelloController {
 
     @GetMapping("hello")
-    public String hello() {
+    public String hello(@RequestParam("hello") String hello) {
+        if (!"hello".equals(hello)){
+            throw new HelloException();
+        }
         return "hello world";
     }
 

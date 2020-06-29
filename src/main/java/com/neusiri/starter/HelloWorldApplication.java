@@ -16,7 +16,7 @@ import java.util.Locale;
  */
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan({"com.neusiri.controller","com.neusiri.config"})
+@ComponentScan({"com.neusiri.controller","com.neusiri.config","com.neusiri.component"})
 public class HelloWorldApplication {
     public static void main(String[] args) {
         //启动

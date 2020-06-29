@@ -1,0 +1,6 @@
+spring:
+  messages:
+    basename: i18n/login
+#项目访问路径
+server:
+  context-path: /crud
