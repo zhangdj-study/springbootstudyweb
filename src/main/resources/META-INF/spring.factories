@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationContextInitializer =\
+  com.neusiri.listener.MyApplicationContextInitializer
+
+
+org.springframework.boot.SpringApplicationRunListener = \
+  com.neusiri.listener.MySpringApplicationRunListener

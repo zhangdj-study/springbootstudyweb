@@ -3,6 +3,8 @@ package com.neusiri.controller;
 import com.neusiri.exception.HelloException;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
+import neusiri.spring.boot.starter.autoconfigurer.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletInputStream;
@@ -19,6 +21,9 @@ import java.util.Map;
 @Api(tags = {"http请求测试"})
 @Slf4j
 public class HelloController {
+
+    @Autowired
+    private HelloService helloService;
 
     @GetMapping("hello")
     public String hello(@RequestParam("hello") String hello) {
@@ -60,4 +65,8 @@ public class HelloController {
         }
     }
 
+    @GetMapping("autoConfiguration/test")
+    public void autoConfigurationTest(){
+        helloService.hello();
+    }
 }

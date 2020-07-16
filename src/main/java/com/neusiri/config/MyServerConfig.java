@@ -23,7 +23,7 @@ public class MyServerConfig {
     /**
      * 注册请求监听器
      */
-    @Bean
+//    @Bean
     public ServletListenerRegistrationBean servletListenerRegistrationBean(){
         return new ServletListenerRegistrationBean(new MyServletRequestListener());
     }

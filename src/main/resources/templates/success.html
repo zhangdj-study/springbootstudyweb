@@ -10,5 +10,9 @@
     <h1 th:text="#{login.tip}">please sign in</h1>
     <a th:href="@{/index.html(l='zh_CN')}">中文</a>
     <a th:href="@{/index.html(l='en_US')}">English</a>
+    <a th:href="@{/login}">登录</a>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="注销">
+    </form>
 </body>
 </html>

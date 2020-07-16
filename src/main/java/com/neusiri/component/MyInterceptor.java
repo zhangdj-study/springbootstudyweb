@@ -1,7 +1,6 @@
 package com.neusiri.component;
 
 import org.json.JSONObject;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -13,13 +12,12 @@ import java.io.PrintWriter;
  * @author zhangdj
  * @date 2020-06-12 15:55
  */
-@Component
 public class MyInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("preHandle-----------");
-        returnErrorResponse(response,333,"被拦截了","233");
-        return false;
+//        returnErrorResponse(response,333,"被拦截了","233");
+        return true;
     }
 
     @Override
