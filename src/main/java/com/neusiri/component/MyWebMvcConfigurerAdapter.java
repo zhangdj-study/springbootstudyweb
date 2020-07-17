@@ -16,6 +16,7 @@ public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
         registry.addViewController("configTest").setViewName("success");
         registry.addViewController("/").setViewName("success");
         registry.addViewController("/index.html").setViewName("success");
+        registry.addViewController("/mylogin").setViewName("mylogin");
     }
 
     @Override

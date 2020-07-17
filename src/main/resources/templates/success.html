@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--引入xmlns:th="http://www.thymeleaf.org" 会有提示-->
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,9 +11,24 @@
     <h1 th:text="#{login.tip}">please sign in</h1>
     <a th:href="@{/index.html(l='zh_CN')}">中文</a>
     <a th:href="@{/index.html(l='en_US')}">English</a>
-    <a th:href="@{/login}">登录</a>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="注销">
-    </form>
+    <!--没有认证显示登陆-->
+    <div sec:authorize="!isAuthenticated()">
+        没有认证<a th:href="@{/mylogin}">请登录</a>
+    </div>
+    <!--认证了显示注销按钮-->
+    <div sec:authorize="isAuthenticated()">
+        <h2><span sec:authentication="name"></span>,您好，您的角色是
+            <span sec:authentication="principal.authorities"></span></h2>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="注销">
+        </form>
+    </div>
+    <!--判断有哪种角色-->
+    <div sec:authorize="hasRole('v1')">
+        我有v1权限
+    </div>
+    <div sec:authorize="hasRole('v2')">
+        我有v2权限
+    </div>
 </body>
 </html>
