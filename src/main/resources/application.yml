@@ -54,5 +54,7 @@ neusiri:
 # 打印日志
 #logging:
     ##  level.com.neusiri.mapper: debug
-# 自动配置报告
-#debug: true
+management:
+  context-path: /manage
+  port: 8181
+#debug: true # 自动配置报告

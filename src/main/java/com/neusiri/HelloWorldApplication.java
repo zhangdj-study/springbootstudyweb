@@ -29,6 +29,7 @@ import java.util.Locale;
 @EnableAsync
 @EnableScheduling
 public class HelloWorldApplication {
+
     public static void main(String[] args) {
         //启动
         SpringApplication.run(HelloWorldApplication.class,args);

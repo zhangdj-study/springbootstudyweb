@@ -41,6 +41,11 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.68</version>
         </dependency>
+        <!--监管-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <!--zk-->
         <dependency>
             <groupId>com.github.sgroschupf</groupId>
