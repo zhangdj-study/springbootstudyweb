@@ -5,8 +5,8 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.56.28.200:3306/test?useUnicode=true&characterEncoding=UTF-8
-#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8
+#    url: jdbc:mysql://10.56.28.200:3306/test?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8
     # 自定义数据源类型
     type: com.alibaba.druid.pool.DruidDataSource
     # DruidDataSource 父类中存在该属性，可以进行属性绑定
@@ -21,22 +21,22 @@ spring:
       ddl-auto: update
     # 控制台打印sql
     show-sql: true
-  profiles:
-    active: test
-  redis:
-    host: 10.56.28.200
-  rabbitmq:
-    host: 10.56.28.200
-    username: guest
-    password: guest
-  elasticsearch:
-    jest:
-      uris: http://10.56.28.200:9201
-  data:
-    # SpringDataES使用的是9300端口
-    elasticsearch:
-      cluster-nodes: 10.56.28.200:9301
-      cluster-name: elasticsearch
+#  profiles:
+#    active: test
+#  redis:
+#    host: 10.56.28.200
+#  rabbitmq:
+#    host: 10.56.28.200
+#    username: guest
+#    password: guest
+#  elasticsearch:
+#    jest:
+#      uris: http://10.56.28.200:9201
+#  data:
+#    # SpringDataES使用的是9300端口
+#    elasticsearch:
+#      cluster-nodes: 10.56.28.200:9301
+#      cluster-name: elasticsearch
 #项目访问路径
 server:
 #  context-path: /crud

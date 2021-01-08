@@ -3,8 +3,6 @@ package com.neusiri.controller;
 import com.neusiri.exception.HelloException;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import neusiri.spring.boot.starter.autoconfigurer.service.HelloService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletInputStream;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Enumeration;
 import java.util.Map;
+import java.util.concurrent.Callable;
 
 /**
  * @author zhangdj
@@ -22,12 +21,9 @@ import java.util.Map;
 @Slf4j
 public class HelloController {
 
-    @Autowired
-    private HelloService helloService;
-
     @GetMapping("hello")
     public String hello(@RequestParam("hello") String hello) {
-        if (!"hello".equals(hello)){
+        if (!"hello".equals(hello)) {
             throw new HelloException();
         }
         return "hello world";
@@ -41,7 +37,7 @@ public class HelloController {
     }
 
     @PostMapping("httpTest")
-    public void httpTest(HttpServletResponse response, HttpServletRequest request, @RequestBody String sss) throws Exception{
+    public void httpTest(HttpServletResponse response, HttpServletRequest request, @RequestBody String sss) throws Exception {
         //创建一个字符串来存储请求信息
         StringBuffer req = new StringBuffer();
         //获取请求行
@@ -59,14 +55,21 @@ public class HelloController {
         ServletInputStream inputStream = request.getInputStream();
         byte[] bytes = new byte[1024];
         int len = 0;
-        while ((len = inputStream.read(bytes)) != -1 ){
+        while ((len = inputStream.read(bytes)) != -1) {
             String s = new String(bytes, 0, len);
             System.out.println(s);
         }
     }
 
-    @GetMapping("autoConfiguration/test")
-    public void autoConfigurationTest(){
-        helloService.hello();
+
+    @GetMapping("/timeout")
+    public Callable<String> timeout() {
+        return new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                Thread.sleep(10000); //this will cause a timeout
+                return "接口Callable测试";
+            }
+        };
     }
 }
